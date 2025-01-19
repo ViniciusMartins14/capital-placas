@@ -1,5 +1,3 @@
-'use client';
-
 import type { Metadata } from 'next';
 import { DM_Sans as DMSans } from 'next/font/google';
 import './globals.css';
@@ -7,7 +5,7 @@ import Transition from '@/components/transition';
 
 const dmSans = DMSans({ subsets: ['latin'] });
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Capital Placas',
   description: 'Crie a comunicação visual de sua empresa conosco!',
 };
