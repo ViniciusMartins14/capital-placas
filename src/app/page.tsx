@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -24,49 +24,95 @@ const fadeIn = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
+interface SectionProps {
+  title: string;
+  description: string;
+  image: StaticImageData;
+  reverse: boolean;
+}
+
+const Section = ({
+  section,
+  reverse,
+}: {
+  section: SectionProps;
+  reverse: boolean;
+}) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      className={`flex flex-col md:flex-row items-center mb-16 gap-16 ${
+        reverse ? 'md:flex-row-reverse' : ''
+      }`}
+      initial="hidden"
+      animate={inView ? 'visible' : 'hidden'}
+      variants={fadeIn}
+    >
+      <Image
+        src={section.image}
+        alt={section.title}
+        className="w-full md:w-1/2 h-[400px] object-cover object-[50%_20%] rounded-lg mb-6 md:mb-0 md:mx-6"
+      />
+      <div className="md:w-1/2">
+        <h2 className="text-4xl font-bold mb-4 text-slate-100">
+          {section.title}
+        </h2>
+        <p className="text-xl leading-relaxed text-slate-100 max-w-[500px] text-left">
+          {section.description}
+        </p>
+      </div>
+    </motion.div>
+  );
+};
+
 export default function Home() {
   const router = useRouter();
 
-  const sections = [
+  const sections: SectionProps[] = [
     {
       title: 'Fachadas em ACM',
       description:
-        'Fachadas personalizadas para cada estilo. Impacto visual desde a primeira impressão.',
+        'Fachadas personalizadas para cada estilo. Impacto visual desde a primeira impressão.',
       image: product17,
       reverse: false,
     },
     {
-      title: 'Letreiros ',
+      title: 'Letreiros',
       description:
-        'Destaque a fachada do seu negócio com letreiros que impressionam, unindo durabilidade e elegância.',
+        'Destaque a fachada do seu negócio com letreiros que impressionam, unindo durabilidade e elegância.',
       image: about1,
       reverse: true,
     },
     {
       title: 'Adesivos',
       description:
-        'Personalise qualquer superfície com adesivos de alta qualidade que agregam estilo e identidade visual.',
+        'Personalize qualquer superfície com adesivos de alta qualidade que agregam estilo e identidade visual.',
       image: adesivo,
       reverse: false,
     },
     {
       title: 'Letras caixa',
       description:
-        'Versatilidade e estilo para destacar sua marca. As letras que transformam espaços e criam impacto.',
+        'Versatilidade e estilo para destacar sua marca. As letras que transformam espaços e criam impacto.',
       image: product16,
       reverse: true,
     },
     {
       title: 'Placas de identificação',
       description:
-        'Personalise qualquer superfície com adesivos de alta qualidade que agregam estilo e identidade visual.',
+        'Personalize qualquer superfície com adesivos de alta qualidade que agregam estilo e identidade visual.',
       image: about2,
       reverse: false,
     },
     {
       title: 'Neon',
       description:
-        'Personalise qualquer superfície com adesivos de alta qualidade que agregam estilo e identidade visual.',
+        'Personalize qualquer superfície com adesivos de alta qualidade que agregam estilo e identidade visual.',
       image: image09,
       reverse: true,
     },
@@ -134,39 +180,9 @@ export default function Home() {
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-100 text-center mb-12 leading-loose">
           Nossos serviços
         </h1>
-        {sections.map((section, index) => {
-          const [ref, inView] = useInView({
-            triggerOnce: true,
-            threshold: 0.2,
-          });
-
-          return (
-            <motion.div
-              key={index}
-              ref={ref}
-              className={`flex flex-col md:flex-row items-center mb-16 gap-16 ${
-                section.reverse ? 'md:flex-row-reverse' : ''
-              }`}
-              initial="hidden"
-              animate={inView ? 'visible' : 'hidden'}
-              variants={fadeIn}
-            >
-              <Image
-                src={section.image}
-                alt={section.title}
-                className="w-full md:w-1/2 h-[400px] object-cover object-[50%_20%] rounded-lg mb-6 md:mb-0 md:mx-6"
-              />
-              <div className="md:w-1/2">
-                <h2 className="text-4xl font-bold mb-4 text-slate-100">
-                  {section.title}
-                </h2>
-                <p className="text-xl leading-relaxed text-slate-100 max-w-[500px] text-left">
-                  {section.description}
-                </p>
-              </div>
-            </motion.div>
-          );
-        })}
+        {sections.map((section, index) => (
+          <Section key={index} section={section} reverse={section.reverse} />
+        ))}
         <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-100 text-center leading-loose">
           Excelência e dedicação em cada projeto
         </h1>
