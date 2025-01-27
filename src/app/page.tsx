@@ -46,7 +46,7 @@ const Section = ({
   return (
     <motion.div
       ref={ref}
-      className={`flex flex-col md:flex-row items-center mb-16 gap-16 ${
+      className={`flex flex-col md:flex-row items-center mb-16 gap-16 w-full overflow-hidden ${
         reverse ? 'md:flex-row-reverse' : ''
       }`}
       initial="hidden"
@@ -56,8 +56,9 @@ const Section = ({
       <Image
         src={section.image}
         alt={section.title}
-        className="w-full md:w-1/2 h-[400px] object-cover object-[50%_20%] rounded-lg mb-6 md:mb-0 md:mx-6"
+        className="w-full h-auto object-cover rounded-lg mb-6 md:mb-0 md:w-1/2"
       />
+
       <div className="md:w-1/2">
         <h2 className="text-4xl font-bold mb-4 text-slate-100">
           {section.title}
@@ -112,7 +113,7 @@ export default function Home() {
     {
       title: 'Neon',
       description:
-        'Personalize qualquer superfície com adesivos de alta qualidade que agregam estilo e identidade visual.',
+        'uma forma vibrante de comunicação visual. Crie atmosferas únicas com iluminação em neon.',
       image: image09,
       reverse: true,
     },
@@ -178,13 +179,13 @@ export default function Home() {
 
       <section id="services" className="bg-slate-950 text-white py-16 px-6">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-100 text-center mb-12 leading-loose">
-          Nossos serviços
+          Nossos serviços:
         </h1>
         {sections.map((section, index) => (
           <Section key={index} section={section} reverse={section.reverse} />
         ))}
         <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-100 text-center leading-loose">
-          Excelência e dedicação em cada projeto
+          Excelência e dedicação em cada projeto.
         </h1>
         <div className="flex justify-center mt-8">
           <Link
@@ -205,7 +206,7 @@ export default function Home() {
 
       <section id="gallery">
         <h1 className="text-4xl sm:text-3xl lg:text-4xl font-semibold text-stone-800 text-center mb-12 mt-16 leading-loose">
-          Nossos projetos
+          Nossos projetos:
         </h1>
         <Gallery />
       </section>
