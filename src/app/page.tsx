@@ -56,7 +56,7 @@ const Section = ({
       <Image
         src={section.image}
         alt={section.title}
-        className="w-full h-auto object-cover rounded-lg mb-6 md:mb-0 md:w-1/2"
+        className="w-full sm:h-auto md:h-[400px] object-cover rounded-lg mb-6 md:mb-0 md:w-1/2"
       />
 
       <div className="md:w-1/2">
