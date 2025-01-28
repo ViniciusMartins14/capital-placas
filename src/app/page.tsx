@@ -8,7 +8,7 @@ import { useInView } from 'react-intersection-observer';
 import collabSvg from '../assets/collab.svg';
 import whatsAppIcon from '../assets/icon-whatsapp.svg';
 import about1 from '../assets/about-1.jpeg';
-import about2 from '../assets/about-2.jpg';
+import about2 from '../assets/identification.jpg';
 import adesivo from '../assets/adesivo.jpeg';
 import product16 from '../assets/produto-16.jpeg';
 import product17 from '../assets/fachada.jpg';
