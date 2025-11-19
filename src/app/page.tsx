@@ -78,42 +78,28 @@ export default function Home() {
     {
       title: 'Fachadas em ACM',
       description:
-        'Fachadas personalizadas para cada estilo. Impacto visual desde a primeira impressão.',
+        'Elegância, durabilidade e destaque. As fachadas em ACM personalizadas da Capital Placas valorizam a frente do seu negócio e reforçam sua identidade visual com acabamento premium.',
       image: product17,
       reverse: false,
     },
     {
-      title: 'Letreiros',
+      title: 'Letreiros Luminosos',
       description:
-        'Destaque a fachada do seu negócio com letreiros que impressionam, unindo durabilidade e elegância.',
+        'Visibilidade em qualquer hora do dia. Produzimos letreiros luminosos modernos, com iluminação em LED e corte sob medida, perfeitos para quem quer atrair olhares e transmitir profissionalismo.',
       image: about1,
       reverse: true,
     },
     {
-      title: 'Adesivos',
+      title: 'Letras Caixa',
       description:
-        'Personalize qualquer superfície com adesivos de alta qualidade que agregam estilo e identidade visual.',
-      image: adesivo,
-      reverse: false,
-    },
-    {
-      title: 'Letras caixa',
-      description:
-        'Versatilidade e estilo para destacar sua marca. As letras que transformam espaços e criam impacto.',
+        'Mais do que um letreiro, uma identidade visual de impacto. Destaque sua marca com acabamento impecável, durabilidade e o design que transforma qualquer espaço.',
       image: product16,
-      reverse: true,
-    },
-    {
-      title: 'Placas de identificação',
-      description:
-        'Personalize qualquer superfície com adesivos de alta qualidade que agregam estilo e identidade visual.',
-      image: about2,
       reverse: false,
     },
     {
-      title: 'Neon',
+      title: 'Placas de Neon',
       description:
-        'uma forma vibrante de comunicação visual. Crie atmosferas únicas com iluminação em neon.',
+        'Transforme seu negócio em um ponto de destaque memorável. As placas de neon da Capital Placas são produzidas sob medida, com cores vibrantes, acabamento premium e instalação profissional, garantindo visibilidade 24 horas.',
       image: image09,
       reverse: true,
     },
@@ -122,6 +108,66 @@ export default function Home() {
   const handleLinkClick = (href: string) => {
     router.push(href);
   };
+
+  const testimonials = [
+    {
+      message:
+        'Sim, ficou muito bom! Parabéns pelo profissionalismo, entrega no prazo combinado! Muito obrigada!',
+      author: 'Cíntia',
+    },
+    {
+      message:
+        'Fiz a fachada da minha loja com a Capital Placas, empresa super correta, cumpriu com todos os prazos, excelente acabamento, muito capricho e profissionalismo, e um pronto atendimento excepcional. Recomendo!',
+      author: 'Alexandre Miranda',
+    },
+    {
+      message:
+        'Demorei muito pra realizar esse sonho, mas a Capital Placas chegou no momento certo! Foram insistentes, cuidadosos e super dedicados. Entregaram mais do que pedi, acabamento impecável! Que Deus abençoe vocês, show!',
+      author: 'Aguiarsh Renails',
+    },
+    {
+      message:
+        'Trabalho top! Empresa séria, Moacir e Denisy super atenciosos. Recomendo a todos.',
+      author: 'Eriton Silva',
+    },
+    {
+      message:
+        'Nossa fachada ficou incrível! Confiança em primeiro lugar, trabalho impecável e profissional!',
+      author: 'Yasmin O. de Figueiredo',
+    },
+    {
+      message: '',
+      author: 'Zeiss Vision Center Ipiranga',
+    },
+  ];
+
+  const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M12 2.75 14.82 9l6.68.57c.68.06.96.91.45 1.35l-5.07 4.3 1.54 6.46c.16.67-.57 1.2-1.16.84L12 19.95l-5.27 2.57c-.6.29-1.32-.18-1.16-.84l1.54-6.46-5.07-4.3c-.51-.43-.23-1.29.45-1.35L9.18 9 12 2.75Z" />
+    </svg>
+  );
+
+  const MessageIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M7 8h10" />
+      <path d="M7 12h7" />
+      <path d="M5 5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-4.5L12 21l-2.5-3H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" />
+    </svg>
+  );
 
   return (
     <div className="h-full w-full">
@@ -177,17 +223,23 @@ export default function Home() {
         </motion.div>
       </motion.section>
 
-      <section id="services" className="bg-slate-950 text-white py-16 px-6">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-100 text-center mb-12 leading-loose">
-          Nossos serviços:
-        </h1>
+      <section id="services" className="bg-slate-950 text-white py-20 px-6">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
+          <p className="text-sm uppercase tracking-[0.4em] text-slate-400">
+            Serviços
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-100">
+            Comunicação visual que entrega resultado.
+          </h2>
+          <p className="text-lg text-slate-200">
+            Projetamos, produzimos e instalamos cada peça com o objetivo de fazer
+            sua marca se destacar, com estética, qualidade e autoridade.
+          </p>
+        </div>
         {sections.map((section, index) => (
           <Section key={index} section={section} reverse={section.reverse} />
         ))}
-        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-100 text-center leading-loose">
-          Excelência e dedicação em cada projeto.
-        </h1>
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-12">
           <Link
             href="https://wa.me/5511989663891"
             target="_blank"
@@ -201,6 +253,59 @@ export default function Home() {
             />
             Orçamento personalizado
           </Link>
+        </div>
+      </section>
+
+      <section className="bg-slate-900 text-white py-20 px-6">
+        <div className="max-w-5xl mx-auto text-center space-y-4">
+          <div className="flex items-center justify-center gap-3 text-slate-300 text-sm uppercase tracking-[0.3em]">
+            <MessageIcon className="h-5 w-5" />
+            <span>Depoimentos</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold leading-tight">
+            Cada projeto entregue é mais do que um serviço, é um sonho
+            realizado.
+          </h2>
+          <p className="text-lg text-slate-200">
+            Confira o que nossos clientes estão dizendo sobre a experiência com
+            a Capital Placas Comunicação Visual.
+          </p>
+        </div>
+        <div className="mt-16 grid gap-8 md:grid-cols-2">
+          {testimonials.map((testimonial, index) => (
+            <motion.article
+              key={testimonial.author}
+              className="bg-slate-800 border border-slate-700 rounded-3xl p-8 h-full flex flex-col justify-between gap-6 shadow-2xl shadow-slate-900/40"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeIn}
+              transition={{ delay: index * 0.05 }}
+            >
+              <div className="flex gap-1 text-yellow-400">
+                {Array.from({ length: 5 }).map((_, starIndex) => (
+                  <StarIcon
+                    key={`${testimonial.author}-star-${starIndex}`}
+                    className="h-5 w-5"
+                  />
+                ))}
+              </div>
+              {testimonial.message && (
+                <p className="text-lg text-slate-100 leading-relaxed">
+                  “{testimonial.message}”
+                </p>
+              )}
+              <div className="pt-4 text-right text-slate-300 font-semibold">
+                — {testimonial.author}
+              </div>
+              {index < testimonials.length - 1 && (
+                <span
+                  className="block mx-auto h-px w-16 bg-slate-700"
+                  aria-hidden
+                />
+              )}
+            </motion.article>
+          ))}
         </div>
       </section>
 
