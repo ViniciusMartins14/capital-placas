@@ -31,6 +31,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onLinkClick }) => {
           Serviços
         </button>
         <button
+          onClick={() => onLinkClick('#testimonials')}
+          className="font-medium text-stone-700 hover:text-blue-700 transition-colors"
+        >
+          Depoimentos
+        </button>
+        <button
           onClick={() => onLinkClick('#gallery')}
           className="font-medium px-5 py-3 text-white bg-slate-900 hover:bg-slate-950 transition-colors rounded-full"
         >

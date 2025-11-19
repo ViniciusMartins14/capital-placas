@@ -8,7 +8,7 @@ import { useInView } from 'react-intersection-observer';
 import collabSvg from '../assets/collab.svg';
 import whatsAppIcon from '../assets/icon-whatsapp.svg';
 import about1 from '../assets/about-1.jpeg';
-import product16 from '../assets/produto-16.jpeg';
+import product16 from '../assets/produto-16.jpg';
 import product17 from '../assets/fachada.jpg';
 import image09 from '../assets/about-3.jpg';
 
@@ -254,7 +254,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-slate-900 text-white py-20 px-6">
+      <section id="testimonials" className="bg-slate-900 text-white py-20 px-6">
         <div className="max-w-5xl mx-auto text-center space-y-4">
           <div className="flex items-center justify-center gap-3 text-slate-300 text-sm uppercase tracking-[0.3em]">
             <MessageIcon className="h-5 w-5" />
